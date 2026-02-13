@@ -372,19 +372,18 @@ Happy Valentine’s Day, my love. I hope this letter reminds you how deeply you 
     popup.classList.add("hidden");
   });
 }
-// 🔐 Show popup ONLY at the very end
-const lastSection = document.querySelector(".nine");
+// 🔐 Show popup ONLY when the final message appears
 
-const observer = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        popup.classList.remove("hidden");
-        observer.disconnect();
-      }
-    });
-  },
-  { threshold: 0.6 }
-);
+const popup = document.getElementById("codePopup");
+const finalSection = document.querySelector(".nine");
 
-observer.observe(lastSection); 
+popup.classList.add("hidden");
+
+const waitForEnd = setInterval(() => {
+  const style = window.getComputedStyle(finalSection);
+
+  if (style.opacity === "1") {
+    popup.classList.remove("hidden");
+    clearInterval(waitForEnd);
+  }
+}, 300);
