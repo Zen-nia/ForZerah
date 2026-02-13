@@ -313,11 +313,6 @@ const closeBtn = document.getElementById("closePopup");
 
 const CORRECT_CODE = "041325";
 
-// show popup
-setTimeout(() => {
-  popup.classList.remove("hidden");
-}, 1200);
-
 button.addEventListener("click", checkCode);
 closeBtn.addEventListener("click", () => {
   popup.classList.add("hidden");
@@ -377,3 +372,19 @@ Happy Valentine’s Day, my love. I hope this letter reminds you how deeply you 
     popup.classList.add("hidden");
   });
 }
+// 🔐 Show popup ONLY at the very end
+const lastSection = document.querySelector(".nine");
+
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        popup.classList.remove("hidden");
+        observer.disconnect();
+      }
+    });
+  },
+  { threshold: 0.6 }
+);
+
+observer.observe(lastSection); 
