@@ -256,14 +256,17 @@ const animationTimeline = () => {
       zIndex: "-1",
     })
     .staggerFrom(".nine p", 1, ideaTextTrans, 1.2)
-    .to(
-      ".last-smile",
-      0.5,
-      {
-        rotation: 90,
-      },
-      "+=1"
-    );
+.to(
+  ".last-smile",
+  0.5,
+  {
+    rotation: 90,
+    onComplete: () => {
+      document.getElementById("codePopup").classList.remove("hidden");
+    }
+  },
+  "+=1"
+);
 
   // tl.seek("currentStep");
   // tl.timeScale(2);
@@ -372,18 +375,3 @@ Happy Valentine’s Day, my love. I hope this letter reminds you how deeply you 
     popup.classList.add("hidden");
   });
 }
-// 🔐 Show popup ONLY when the final message appears
-
-const popup = document.getElementById("codePopup");
-const finalSection = document.querySelector(".nine");
-
-popup.classList.add("hidden");
-
-const waitForEnd = setInterval(() => {
-  const style = window.getComputedStyle(finalSection);
-
-  if (style.opacity === "1") {
-    popup.classList.remove("hidden");
-    clearInterval(waitForEnd);
-  }
-}, 300);
