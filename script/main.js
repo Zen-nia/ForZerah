@@ -367,7 +367,7 @@ Thank you sooo muchhh, babbbyyyyy for staying, for believing in us, and for lovi
 
 If I wrote you letters for the rest of my life, I think they would all say the same thing in different ways. That I love you, that I choose you, and that my heart feels right when it’s with you.
 
-Happy Valentine’s Day, my love. I hope this letter reminds you how deeply you are cherished, today and always.
+Happy Valentine’s Day, my bebbiiii. I hope this letter reminds you how deeply you are loveddd, today and alwaysss.
     </div>
   `;
 
